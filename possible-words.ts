@@ -10,6 +10,18 @@ export const swapCharsAtIndices = (str: string, i: number, j: number): string =>
   return split.join('')
 }
 
+export const everySubstring = (str: string): Set<string> => {
+  const substrings: Set<string> = new Set()
+
+  for (let i = 0; i < str.length; i++) {
+    for (let j = i + 1; j <= str.length; j++) {
+      substrings.add(str.substring(i, j))
+    }
+  }
+
+  return substrings
+}
+
 export const permuteString = (str: string, currentIndex: number = 0, permutations: Set<string> = new Set()): Set<string> => {
   if (currentIndex === str.length - 1) {
     permutations.add(str)
