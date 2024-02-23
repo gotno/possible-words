@@ -36,3 +36,8 @@ export const permuteStringAndSubstrings = (str: string, currentIndex: number = 0
 
   return permutations
 }
+
+export const possibleWords = (str: string, wordList: string[]): string[] => {
+  const permutations: string[] = [...permuteStringAndSubstrings(str)]
+  return permutations.filter((candidate) => wordList.includes(candidate))
+}
