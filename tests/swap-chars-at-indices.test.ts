@@ -9,6 +9,10 @@ describe('swapCharsAtIndices function', () => {
     expect(swapCharsAtIndices('a', 0, 1)).toBe('a')
   })
 
+  test('can swap a character for itself', () => {
+    expect(swapCharsAtIndices('abc', 1, 1)).toBe('abc')
+  })
+
   test('returns the input string when indices are out of bounds', () => {
     expect(swapCharsAtIndices('abc', 0, 7)).toBe('abc')
     expect(swapCharsAtIndices('abc', 8, 1)).toBe('abc')
