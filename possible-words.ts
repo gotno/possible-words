@@ -22,15 +22,16 @@ export const everySubstring = (str: string): Set<string> => {
   return substrings
 }
 
-export const permuteString = (str: string, currentIndex: number = 0, permutations: Set<string> = new Set()): Set<string> => {
+export const permuteStringAndSubstrings = (str: string, currentIndex: number = 0, permutations: Set<string> = new Set()): Set<string> => {
   if (currentIndex === str.length - 1) {
     permutations.add(str)
+    permutations = new Set([...permutations, ...everySubstring(str)])
     return permutations
   }
 
   for (let i = currentIndex; i < str.length; i++) {
     const swapped: string = swapCharsAtIndices(str, i, currentIndex)
-    permutations = permuteString(swapped, currentIndex + 1, permutations)
+    permutations = permuteStringAndSubstrings(swapped, currentIndex + 1, permutations)
   }
 
   return permutations
