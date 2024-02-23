@@ -8,3 +8,5 @@ export const swapCharsAtIndices = (str: string, i: number, j: number): string =>
   split[j] = str[i]
   return split.join('')
 }
+
+export const permuteString = (str: string): Set<string> => new Set()
